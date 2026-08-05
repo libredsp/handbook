@@ -1,0 +1,7 @@
+[book]
+title = "LibreDSP Handbook"
+authors = ["Iman Alavi Fazel"]
+language = "en"
+
+[output.html]
+mathjax-support = true
