@@ -22,7 +22,7 @@ Above, we saw a general overview of how LCCDE acts a frequency selective filter 
 In what follows, we look at some of the rigorous mathematics behind what discussed above.
 
 We'll first look at discrete Fourier series, which is a tool to decompose a *periodic* discrete-time signal in terms of sinusoids.
-Next, we'll see how the same idea can be expanded to represent any *aperiodic* signal in terms of sinusoids via discrete-time Fourier Transform (DTFT).
+Next, we'll see how the same idea can be expanded to represent *aperiodic* signals in terms of sinusoids via discrete-time Fourier Transform (DTFT).
 Lastly, we see yet another type of transform called the *Z-transform*.
 As we'll see, Z-Transform is the tool that is used to solve LCCDEs, and moreover, it is a generalization of DTFT.
 Consequently, the application of Z-transform is two folds.
