@@ -99,7 +99,7 @@ x[n]=\sum_{k=0}^{N_0-1}a_ke^{jk\omega_0n}, \qquad \omega_0=\frac{2\pi}{N_0}.
 This is called the **Discrete Fourier Series (DFS)** expansion of the signal \\(x[n]\\).
 
 Expanding the sum gives us \\(N_0\\) equations with \\(N_0\\) unknowns. In matrix notation, we have \\(Ax=b\\), where \\(A\\) is a matrix consisting of complex exponential terms, \\(x\\) is a vector containing the unknown coefficients that we are trying to find, and \\(b\\) contains the values of the signal at different samples.
-In other words, DFS is merely a system of \((N\)) equation and \\(N\\) unknowns.
+In other words, DFS is merely a system of \\(N\\) equation and \\(N\\) unknowns.
 
 Can we apply standard Gaussian elimination to solve such systems?
 
