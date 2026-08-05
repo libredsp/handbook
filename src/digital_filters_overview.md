@@ -90,7 +90,7 @@ Consider a *periodic* discrete-time signal \\(x[n]\\) with period \\(N_0\\). Tha
 x[n+N_0]=x[n].
 \\]
 
-Where \((N_0\)) is an integer. 
+Where \\(N_0\\) is an integer. 
 We can rewrite such signals as sums of complex exponentials:
 \\[
 x[n]=\sum_{k=0}^{N_0-1}a_ke^{jk\omega_0n}, \qquad \omega_0=\frac{2\pi}{N_0}.
