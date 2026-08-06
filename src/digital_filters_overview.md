@@ -80,7 +80,7 @@ Proof:
 \frac{d}{dx}e^{jx} = \frac{d}{dx}(\cos x+j\sin x) = -\sin x+j\cos x = je^{jx}.
 \\]
 
-Euler's formula is used extensively in signal processing because it often gives us a shortcut when computing different transforms. More importantly, it allows us to relate certrain transforms to other ones, such as the DTFT to the Z-transform (as we'll see later), or the CTFT to the Laplace transform.
+Euler's formula is used extensively in signal processing because it often gives us a shortcut when computing different transforms. More importantly, it allows us to relate certain transforms to other ones, such as the DTFT to the Z-transform (as we'll see later), or the CTFT to the Laplace transform.
 
 ## Discrete Fourier Series
 
@@ -228,7 +228,7 @@ e^{j(\omega+2\pi)n}=e^{j\omega n}.
 As a result, the DTFT \\(X(e^{j\omega})\\) is always periodic with period \\(2\pi\\).
 Hence, to plot the result of DTFT, it is enough plot only \\(2\pi\\) interval of the graph.
 
-The DTFT analysis equation \\(X(e^{j\omega})\\), in pratice, is often computed analytically using identities such as the *geometric series*:
+The DTFT analysis equation \\(X(e^{j\omega})\\), in practice, is often computed analytically using identities such as the *geometric series*:
 \\[
 1+a+a^2+\cdots=\frac{1}{1-a}, \qquad |a|<1.
 \\]
@@ -537,8 +537,8 @@ Plotting this function can show us that this is a low-pass filter.
 
 ## Digital filter design
 The art of filter design, in summary, is to find coefficients of an LCCDE that gives us the desired filter behavior.
-In this section, we focused on one class of filter design which performed frequency-selective filtering.
-There are other types, for example, filters based on statistics (such as Wiener filter, LMS, RLS, etc) that we will discuss in a separate chapter.
+In this section, we focused on one class of digital filters that perform frequency-selective filtering.
+There are other types, for example, filters that are based on signal statistics (such as Wiener filter, LMS, RLS, etc) that we will discuss in a separate chapter.
 To design frequency-selective filters, there are various algorithms and techniques derived in the literature for finding these coefficients.
 The major classification of these design techniques are whether they design a finite impulse response (FIR) or an infinite impulse response (IIR) filter.
 FIR filters simply refers to filters that consist only of \\(x\\) terms (\\(x[n-1]\\), \\(x[n-2]\\), ...).
