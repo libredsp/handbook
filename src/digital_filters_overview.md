@@ -166,7 +166,7 @@ Let \\(x[n]\\) be an aperiodic signal that is nonzero only for
 N_1 \le n \le N_2.
 \\]
 
-Choose a period \\(N \ge N_2-N_1+1\\) and construct the periodic extension of \\(x[n]\\) by repeating one period that contains the entire nonzero portion of the signal.. The DFS coefficients are
+Choose a period \\(N \ge N_2-N_1+1\\) and construct the periodic extension of \\(x[n]\\) by repeating one period that contains the entire nonzero portion of the signal. The DFS coefficients are
 
 \\[
 a_k = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\omega_0n} = \frac{1}{N}\sum_{n=-\infty}^{\infty}x[n]e^{-jk\omega_0n} = \frac{1}{N}X(e^{j\omega_0k}),
@@ -507,7 +507,8 @@ Y(z)=\frac{1}{(1-z^{-1})^2}.
 \\]
 
 We can then use the Z-transform tables to find the inverse transform of \\(Y(z)\\) and obtain the time-domain signal.
-Which gives us
+The inverse is unique by the uniqueness theorem of the Z-transform, which states that the mapping between the time domain and the Z-transform domain is one-to-one.
+This gives us
 
 \\[
 y[n]=(n+1)u[n].
@@ -535,8 +536,10 @@ H(e^{j\omega}) = \frac{1}{1-e^{-j\omega}}.
 Plotting this function can show us that this is a low-pass filter.
 
 ## Digital filter design
-The art of filter design, in summary, is to find coefficients of an LCCDE that gives us the desired response.
-There are various algorithms and techniques derived in the literature for finding these coefficients.
+The art of filter design, in summary, is to find coefficients of an LCCDE that gives us the desired filter behavior.
+In this section, we focused on one class of filter design which performed frequency-selective filtering.
+There are other types, for example, filters based on statistics (such as Wiener filter, LMS, RLS, etc) that we will discuss in a separate chapter.
+To design frequency-selective filters, there are various algorithms and techniques derived in the literature for finding these coefficients.
 The major classification of these design techniques are whether they design a finite impulse response (FIR) or an infinite impulse response (IIR) filter.
 FIR filters simply refers to filters that consist only of \\(x\\) terms (\\(x[n-1]\\), \\(x[n-2]\\), ...).
 They are called FIR because if input is \\(x[n]=\delta[n]\\), then the response has a finite duration.
