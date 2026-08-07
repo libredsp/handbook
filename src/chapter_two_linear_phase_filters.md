@@ -23,7 +23,7 @@ Hence, we get four different types, which in the literature are labeled as FIR f
 
 - Type IV: Anti-symmetric, even length
 
-Before understanding the effect of linear phase FIR filters on an arbitrary input we need to talk about some prerequisite concepts first.
+Before understanding the effect of linear phase FIR filters on an arbitrary input, there are a few concepts we need to cover first.
 
 ## Complex exponentials as eigenfunctions of LCCDE filters with initial rest conditions
 In the previous section, we saw that we can apply the Z-transform on an LCCDE to get:
