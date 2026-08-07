@@ -440,16 +440,13 @@ X(z) = \sum_{n=0}^{\infty} x[n]z^{-n}.
 \\]
 
 When applied to a signal, the unilateral Z-transform is simply the bilateral Z-transform of \\(x[n]u[n]\\).
-
 Furthermore, for a rational Z-transform, the ROC is the region **outside the outermost pole**.
-
 Most properties are identical for the bilateral and unilateral Z-transforms, such as linearity.
-
 The convolution property also holds provided both signals are zero for \\(n<0\\).
 
 For the unilateral Z-transform, the time-shifting property is
 \\[
-x[n-1] \;\Longleftrightarrow\; zX(z)-zx[-1].
+x[n-1] \Longleftrightarrow zX(z)-zx[-1].
 \\]
 
 This property allows us to *solve LCCDEs with initial conditions*.
