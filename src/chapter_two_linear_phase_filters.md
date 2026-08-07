@@ -1,6 +1,6 @@
 # Linear phase FIR filters
 To recap from the last chapter, finite impulse response (or FIR) filters refer to filters that only have \\(x\\) terms in their equation.
-As a consequence, their equation does not have any \\(y\\), i.e., feedback term, and therefore the impulse response has a finite (hence the name finite impulse response).
+It can be shown that if the impulse response is either symmetric or anti-symmetric, the corresponding filters will have linear phase.
 
 A desirable property that FIR filters can have is to have *linear phase*.
 
