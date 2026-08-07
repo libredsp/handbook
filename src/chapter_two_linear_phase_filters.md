@@ -273,7 +273,7 @@ If we have two different cosine functions as input, one with the frequency of \\
 Case 1: \\(\omega_1 = \pi / 3\\)
 
 \\[ 
-    y[n] = 0.1779 \cos\big((\pi/3)(n - 2)\big) = 0.1779 \cos(\frac{3\pi}{3}​-\frac{2\pi}{3}​)
+    y[n] = 0.1779 \cos\big((\pi/3)(n - 2)\big) = 0.1779 \cos(\frac{n\pi}{3}​-\frac{2\pi}{3}​)
 \\]
 
 Case 2: \\(\omega_2 = \pi / 2\\)
@@ -287,8 +287,8 @@ In both cases, the delay is exactly 2 samples. The only difference is the invers
 The following graph depicts the input and output for both cases:
 
 <figure style="text-align: center;">
-  <img src="chapter_two_imgs/pic1.png" alt="The output of the symmetric filter for two different cosine functions." style="display: block; margin: 0 auto;">
-  <figcaption>Figure 1: The output of the symmetric filter for two different cosine functions.</figcaption>
+  <img src="chapter_two_imgs/pic2.png" alt="The output of the symmetric filter for two different cosine functions." style="display: block; margin: 0 auto;">
+  <figcaption>Figure 2: The output of the symmetric filter for two different cosine functions.</figcaption>
 </figure>
 
 The example we just saw is called a **Type I** FIR filter, because the impulse response is symmetric and has an odd number of elements.
@@ -321,7 +321,7 @@ where \\(A(\omega)\\) is a real, continuous, and odd function of \\(\omega\\).
 
 To see the effect of such a filter on a sinusoidal signal, we plug it into the formula we derived earlier for the output of a cosine input:
 
-\\[LCCDEs with initial rest conditions have these properties
+\\[
 y[n] = |H(e^{j\omega_0})| \cos\big(\omega_0 n + \angle H(e^{j\omega_0})\big)
 \\]
 
