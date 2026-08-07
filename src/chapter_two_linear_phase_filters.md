@@ -84,7 +84,7 @@ Since the system is LTI, we can use the principle of superposition: the response
 y[n] = \frac{1}{2} \left( H(e^{j\omega_0}) e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\omega_0 n} \right)
 \\]
 
-If we assume that \\(h[n]\\) is real (as it almost always is for physical filters), its DTFT has conjugate symmetry:
+If we assume that \\(h[n]\\) is real (as it almost always is for pratical filters), its DTFT has conjugate symmetry:
 
 \\[
 H(e^{-j\omega_0}) = \sum_{m=-\infty}^{\infty} h[m] e^{j\omega_0 m} = \left( \sum_{m=-\infty}^{\infty} h[m] e^{-j\omega_0 m} \right)^* = H^*(e^{j\omega_0})
