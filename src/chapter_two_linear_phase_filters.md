@@ -2,7 +2,7 @@
 To recap from the last chapter, finite impulse response (or FIR) filters refer to filters that only have \\(x\\) terms in their equation.
 As a consequence, their equation does not have any \\(y\\), i.e., feedback term, and therefore the impulse response has a finite (hence the name finite impulse response).
 
-A desirable property that FIR filters can have is to have *linear phase*.
+A desirable property that FIR filters can have is to have ***linear phase***.
 
 It can be shown that if the impulse response is either symmetric or anti-symmetric, the corresponding filters will have linear phase.
 The figure below shows examples of symmetric and anti-symmetric impulse responses.
@@ -84,7 +84,7 @@ Since the system is LTI, we can use the principle of superposition: the response
 y[n] = \frac{1}{2} \left( H(e^{j\omega_0}) e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\omega_0 n} \right)
 \\]
 
-If we assume that \\(h[n]\\) is real (as it almost always is for pratical filters), its DTFT has conjugate symmetry:
+If we assume that \\(h[n]\\) is real (as it almost always is for practical filters), its DTFT has conjugate symmetry:
 
 \\[
 H(e^{-j\omega_0}) = \sum_{m=-\infty}^{\infty} h[m] e^{j\omega_0 m} = \left( \sum_{m=-\infty}^{\infty} h[m] e^{-j\omega_0 m} \right)^* = H^*(e^{j\omega_0})
@@ -123,7 +123,7 @@ y[n] = |H(e^{j\omega_0})| \cos\big(\omega_0 n + \angle H(e^{j\omega_0})\big)
 This tells us that the output of the system due to a cosine input is also a cosine with its amplitude and phase modified according to the above equation.
 
 ### Summary
-For a cosine input \\(x[n] = \cos(\omega_0 n)\\), the output of an an LCCDE with initial rest conditions, which is an LTI system, is:
+For a cosine input \\(x[n] = \cos(\omega_0 n)\\), the output of an LCCDE with initial rest conditions, which is an LTI system, is:
 
 \\[
 y[n] = |H(e^{j\omega_0})| \cos\big(\omega_0 n + \angle H(e^{j\omega_0})\big)
@@ -171,7 +171,7 @@ When such a signal passes through an LTI system, each cosine component is indepe
 
 
 ## Filters with symmetric impulse responses
-Now imagine we have a filter whose impulse response is symmetric.
+Now, imagine we have a filter whose impulse response is symmetric.
 This means that mathematically, the impulse response is:
 
 \\[
@@ -188,7 +188,7 @@ H(e^{j\omega}) = A(\omega) e^{-j\omega M / 2}
 
 where \\(A(\omega)\\) is a real, continuous, and even function of \\(\omega\\).
 
-Such a filter is said to have ***linear phase***.
+Such a filter is said to have **linear phase**.
 The most intuitive way to see what linear phase means is to examine the output of the filter for a sinusoidal input.
 Plugging the linear-phase form into formula we derived for the output of a filter for a cosine input we get:
 
@@ -204,8 +204,8 @@ y[n] = |A(\omega_0)| \cos\big(\omega_0 n - \omega_0 M/2\big)
 = |A(\omega_0)| \cos\big(\omega_0 (n - M/2)\big)
 \\]
 
-This means that, for cosines with frequency \\(\omega_0\\) which makes \\(A(\omega_0)\\) positive, the filter will simply produce a cosine shifted in time by \\(M/2\\) samples.
-Moreover, get the same amount of delay for all other cosines which their frequencies make \\(A(\omega_0)\\) positive.
+This means that for a cosine with frequency \\(\omega_0\\) that makes \\(A(\omega_0)\\) positive, the filter simply produces a cosine shifted in time by \\(M/2\\) samples.
+Moreover, we get the same amount of delay for all other cosines whose frequencies make \\(A(\omega_0)\\) positive.
 
 If \\(A(\omega_0)\\) is negative, we get an additional phase shift of \\(\pi\\), which corresponds to a sign inversion of the cosine:
 
@@ -293,18 +293,17 @@ The following graph depicts the input and output for both cases:
 
 The example we just saw is called a **Type I** FIR filter, because the impulse response is symmetric and has an odd number of elements.
 As we have seen with the example, the delay that this type of filter imposes on a sinusoidal input is an integer number of samples.
-For example, it shifts the cosine input by \\(2\\) samples, as in the example.
+For instance, it shifts the cosine input by \\(2\\) samples, as in the example.
 
 If a filter has a symmetric impulse response but an even number of elements, the filter is said to be of **Type II**.
 Type II filters have non-integer sample delay.
 Moreover, for these types, the value of \\(A(\omega)\\) is always zero at \\(\omega=\pi\\).
 Consequently, they are not suited for highpass filters.
-
 In contrast, Type I filters do not have a forced zero at any frequency.
 Therefore, Type I filters are more flexible and can be used for all kinds of filters (lowpass, bandpass, highpass, etc.).
 
 ## Filters with antisymmetric impulse responses
-We are ready to discuss the next type of filter with linear phase, the ones that have antisymmetric impulse responise.
+We are ready to discuss the next type of filter with linear phase, the ones that have antisymmetric impulse response.
 Mathematically, the impulse response is:
 \\[
 h[n] = -h[M-n] \quad \text{for } 0 \leq n \leq M
@@ -352,8 +351,8 @@ y[n] = |A(\omega_0)| \sin\big(\omega_0 n - \omega_0 M/2 + \pi/2\big) = |A(\omega
 
 The output is a cosine function, delayed by \\(M/2\\) samples.
 
-As we can see, the main remains the same.
-Every frequency component gets delayed by the same amount \(D = M/2\).
+As we can see, the main point remains the same.
+Every frequency component gets delayed by the same amount \\(D = M/2\\).
 This is still linear phase.
 The constant \(\pm\pi/2\) offset simply swaps sines and cosines, but the waveform shape is preserved, just shifted in time and possibly transformed between sine and cosine.
 
