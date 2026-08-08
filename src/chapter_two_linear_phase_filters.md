@@ -4,7 +4,7 @@ As a consequence, their equation does not have any \\(y\\), i.e., feedback term,
 
 A desirable property that FIR filters can have is to have ***linear phase***.
 
-It can be shown that if the impulse response is either symmetric or anti-symmetric, the corresponding filters will have linear phase.
+It can be shown that if a filter has either a symmetric or an anti-symmetric impulse response, then the filter has linear phase.
 The figure below shows examples of symmetric and anti-symmetric impulse responses.
 
 <figure style="text-align: center;">
