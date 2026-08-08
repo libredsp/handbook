@@ -147,7 +147,7 @@ conjugate symmetry property:
 X(e^{-j\omega}) = X^*(e^{j\omega})
 \\]
 
-Instead of writing the full inverse DTFT formula to express \\(x[n]\\), we can simply observe what happens at a single frequency pair.
+Instead of writing the full inverse DTFT formula to express \\(x[n]\\), we can simply observe what happens at a single frequency pair (positive and negative \\(\omega_0\\)).
 Taking a single complex exponential component of \\(x[n]\\) at frequency \\(\omega_0\\), and since \\(x[n]\\) is real, the component at \\(-\omega_0\\) must be its complex conjugate. Together, they form:
 
 \\[
@@ -354,7 +354,7 @@ The output is a cosine function, delayed by \\(M/2\\) samples.
 As we can see, the main point remains the same.
 Every frequency component gets delayed by the same amount \\(D = M/2\\).
 This is still linear phase.
-The constant \(\pm\pi/2\) offset simply swaps sines and cosines, but the waveform shape is preserved, just shifted in time and possibly transformed between sine and cosine.
+The constant \\(\pi/2\\) offset simply swaps sines and cosines, but the waveform shape is preserved, just shifted in time and possibly transformed between sine and cosine.
 
 Antisymmetric filters also come in two types, depending on whether the length is odd or even.
 **Type III** filters refer to antisymmetric and odd length.
