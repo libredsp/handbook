@@ -4,7 +4,7 @@ As a consequence, their equation does not have any \\(y\\), i.e., feedback term,
 
 A desirable property that FIR filters can have is to have ***linear phase***.
 
-It can be shown that if a filter has either a symmetric or an anti-symmetric impulse response, then the it has linear phase.
+It can be shown that if a filter has either a symmetric or an anti-symmetric impulse response (around some index), then the filter has linear phase.
 The figure below shows examples of symmetric and anti-symmetric impulse responses.
 
 <figure style="text-align: center;">
@@ -67,12 +67,12 @@ Note that the convolution theorem holds even when input signal is complex-valued
 This is because the convergence conditions needed for the DTFT to exist, such as absolute summability, depend only on the magnitudes (\\(|x[n]|\\)) and (\\(|h[n]|\\)), which are well-defined for both real and complex-valued signals.
 Thus, complex-valued signals do not introduce any additional convergence issue under these conditions.
 
-The convolution theorem then follows from the same algebra as in the real-valued case. In particular, swapping the order of summation and factoring
+The convolution theorem then follows from the same algebra as in the real-valued case. 
+Specifically, its proof relies on the fact that:
 \\[
 e^{-j\omega(k+m)} = e^{-j\omega k}e^{-j\omega m}
 \\]
-do not require (\\(x[n]\\)) or (\\(h[n]\\)) to be real-valued.
-
+which is a property of complex exponentials and does not require (\\(x[n]\\)) or (\\(h[n]\\)) to be real-valued.
 
 In Signals & Systems courses, they generalize this result to any system that is LTI (Linear and Time-Invariant).
 LCCDEs with initial rest conditions have these properties, but they are not the only systems with such properties.

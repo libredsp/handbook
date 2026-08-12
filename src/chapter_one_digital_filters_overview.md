@@ -5,9 +5,10 @@ We can plug the input signal \\(x[n]\\) into the following equation, called a **
 \\[
 y[n] = \sum_{k=0}^{M} b_k x[n-k] - \sum_{k=1}^{N} a_k y[n-k].
 \\]
-In this equation, the left-hand side, \\(y[n]\\), is the output of the system, and the terms \\(x[n-k]\\) and \\(y[n-k]\\) are past samples of the input and output, respectively. The values \\(a_k\\) and \\(b_k\\) are real-valued coefficients.
+In this equation, the left-hand side, \\(y[n]\\), is the output of the system, and the terms \\(x[n-k]\\) and \\(y[n-k]\\) are past samples of the input and output, respectively.
+The values \\(a_k\\) and \\(b_k\\) are some coefficients.
 The output \\(y[n]\\) obtained by applying the equation passes certain frequencies of the input and filters out others. Here, the "frequencies" in the input signal come from the theory of Fourier analysis.
-The theory of Fourier analysis, which was originally developed for continuous-time signals, gives us a set of formulas to decompose almost any discrete-time signal (under mild assumptions) into a sum of sinusoidal terms.
+The theory of Fourier analysis, which was originally developed for continuous-time signals, gives us a set of formulas to decompose almost any signal (under mild assumptions) into a sum of sinusoidal terms.
 An LCCDE acts as a system that passes (or boosts) certain frequency bands and blocks (or attenuates) others.
 As a concrete example, if the coefficients of an LCCDE are chosen so that the equation acts as a **low-pass filter**, the system allows slowly varying components of the input signal to pass while attenuating rapidly varying components.
 
@@ -17,6 +18,8 @@ The figure below shows an example input signal and its corresponding output afte
   <img src="chapter_one_imgs/pic1.png" alt="A signal and the output of a lowpass filter" style="display: block; margin: 0 auto;">
   <figcaption>Figure 1: A signal and the output of a lowpass filter on the same signal</figcaption>
 </figure>
+
+As we can see in the figure, the output of the filter retains the slowly-varying sinusoidal component of the input and has the high-frequency sinusoidal components (essentially the noise in the input signal) removed.
 
 Above, we saw a general overview of how LCCDE acts a frequency selective filter without going through the detail of the math behind it.
 In what follows, we look at some of the rigorous mathematics behind what discussed above.
@@ -38,7 +41,8 @@ a + bi
 \\]
 where \\(a\\) and \\(b\\) are arbitrary real-valued numbers and \\(i=\sqrt{-1}\\).
 
-An important property of complex numbers is that they form a *field*. This means that they obey all the familiar rules such as associativity, commutativity, distributivity, and so on, just like real numbers. For instance, the following expression is valid for complex numbers as well:
+An important property of complex numbers is that they form a *field*. This means that they obey all the familiar rules such as associativity, commutativity, distributivity, and so on, which real numbers also obey.
+For instance, the following expression is valid for complex numbers:
 \\[
 z_1(z_2 + z_3) = z_1z_2 + z_1z_3
 \\]
@@ -50,14 +54,12 @@ Complex exponentials are related to trigonometric functions via *Euler's formula
 \\[
 e^{j\theta} = \cos(\theta) + j\sin(\theta)
 \\]
-
 Where does this formula come from?
 
 In one view, Euler's formula can simply be taken as a *definition* of what it means to raise \\(e\\) to the power \\(j\theta\\). In another approach, we first define what it means to raise \\(e\\) to a general complex number \\(z\\):
 \\[
 e^{z} = \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots
 \\]
-
 Substituting \\(z=j\theta\\) yields Euler's formula. Either way, we arrive at the same result.
 
 But the question that still remains is: how does this relationship (whether defined or derived) help us?
@@ -155,7 +157,8 @@ As a consequence, we can pair the \\(k\\) and \\(N-k\\) terms together to obtain
 
 ## Discrete-Time Fourier Transform
 
-We saw how the DFS can decompose a periodic discrete-time signal. If a signal is **aperiodic**, a related but different transform called the **Discrete-Time Fourier Transform (DTFT)** can be used.
+We saw how the DFS can decompose a periodic discrete-time signal.
+If a signal is **aperiodic**, a related but different transform called the **Discrete-Time Fourier Transform (DTFT)** can be used.
 
 Below we see how the DTFT can be derived from the DFS. The basic idea is to construct a periodic signal by appending zeros to an aperiodic signal and then repeating that signal to make it periodic.
 We then apply DFS on this periodic signal.
@@ -197,14 +200,14 @@ x[n] = \frac{1}{2\pi} \sum_{k=0}^{N-1} X(e^{j\omega_0k}) e^{jk\omega_0n} \,\omeg
 As \\(N\rightarrow\infty\\), we have \\(\omega_0\rightarrow0\\), and the sum becomes an integral:
 
 \\[
-x[n] = \frac{1}{2\pi} \int_0^{2\pi} X(e^{j\omega}) e^{j\omega n} \,d\omega.
+x[n] = \frac{1}{2\pi} \int_0^{2\pi} X(e^{j\omega}) e^{j\omega n} d\omega.
 \\]
 
 In summary, an aperiodic discrete-time signal can be expressed as an integral of complex exponentials through the Discrete-Time Fourier Transform (DTFT):
 
 **Synthesis**
 \\[
-x[n] = \frac{1}{2\pi} \int_0^{2\pi} X(e^{j\omega}) e^{j\omega n} \,d\omega.
+x[n] = \frac{1}{2\pi} \int_0^{2\pi} X(e^{j\omega}) e^{j\omega n} d\omega.
 \\]
 
 **Analysis**
@@ -215,7 +218,6 @@ X(e^{j\omega}) = \sum_{n=-\infty}^{\infty} x[n] e^{-j\omega n}.
 The **analysis** equation computes the DTFT \\(X(e^{j\omega})\\) from the signal \\(x[n]\\), while the **synthesis** equation reconstructs \\(x[n]\\) from its DTFT.
 
 ## Some notes about DTFT
-
 The conjugate property for *real-valued* signals that we saw for the DFS also holds for the DTFT. That is,
 \\[
 X(e^{j\omega}) = X^*(e^{-j\omega}).
@@ -256,12 +258,12 @@ The answer is the convolution (you can find nice visualizations of the convoluti
 More specifically, the convolution theorem states that
 
 \\[
-r[n] = x[n]*y[n] = \sum_{k=-\infty}^{\infty}x[k]\,y[n-k].
+r[n] = x[n]*y[n] = \sum_{k=-\infty}^{\infty}x[k]y[n-k].
 \\]
 
 Then
 \\[
-\mathcal{F}\{x[n]*y[n]\} = X(e^{j\omega})Y(e^{j\omega}).
+\mathcal{F}\\{x[n]*y[n]\\} = X(e^{j\omega})Y(e^{j\omega}).
 \\]
 
 Where \\(*\\) is the convolution operator.
@@ -271,7 +273,7 @@ In short, the convolution theorem tells us that **multiplication in the frequenc
 Conversely, multiplication in the time domain corresponds to convolution in the frequency domain (more precisely, "periodic convolution" which is the convolution over an interval of length \\(2\pi\\)), scaled by \\(1/(2\pi)\\):
 
 \\[
-\mathcal{F}\{x[n]y[n]\} = \frac{1}{2\pi} \int_0^{2\pi} X(e^{j\theta}) Y(e^{j(\omega-\theta)}) \,d\theta.
+\mathcal{F}\\{x[n]y[n]\\} = \frac{1}{2\pi} \int_0^{2\pi} X(e^{j\theta}) Y(e^{j(\omega-\theta)}) d\theta.
 \\]
 
 Multiplying two signals in the frequency domain can be thought of as modifying the frequency content of a signal. For example, whenever we multiply the DTFT of a signal by the DTFT of a rectangle function, the result is a function whose frequency content is preserved up to a cutoff frequency, while higher frequencies are removed. This operation is referred to as **low-pass filtering**.
@@ -284,8 +286,8 @@ To summarize, the result of multiplying two signals in the frequency domain can 
 
 1. Compute the DTFT of the signal, multiply it by the DTFT of a second function, and then compute the inverse DTFT.
 2. Convolve the signal with
-   \\[
-g[n]=\mathcal{F}^{-1}\{G(e^{j\omega})\},
+\\[
+  g[n]=\mathcal{F}^{-1}\\{G(e^{j\omega})\\},
 \\]
    where \\(G(e^{j\omega})\\) is the DTFT of the second function.
 
@@ -301,7 +303,7 @@ Mathematically, it is defined as:
 Its DTFT is
 
 \\[
-\mathcal{F}\{\delta[n]\} = \sum_{n=-\infty}^{\infty} \delta[n]e^{-j\omega n} = 1.
+\mathcal{F}\\{\delta[n]\\} = \sum_{n=-\infty}^{\infty} \delta[n]e^{-j\omega n} = 1.
 \\]
 
 The discrete-time delta also satisfies the convolution identity
@@ -311,7 +313,7 @@ The discrete-time delta also satisfies the convolution identity
 \\]
 
 ## DTFT: Frequency selective systems
-The convolution theorem told us what happens if we convolve two *signals* in the time domain, i.e., the effect of convolution is same as multiplication of two signal's DTFTs \\(A(\omega)B(\omega)\\) and then taking inverse DTFT of the result \\(\mathcal{F}^{-1}( A(\omega)B(\omega))\\).
+The convolution theorem told us what happens if we convolve two *signals* in the time domain, i.e., the effect of convolution is same as multiplication of two signal's DTFTs \\(A(\omega)B(\omega)\\) and then taking inverse DTFT of the result \\(\mathcal{F}^{-1} \\{ A(\omega)B(\omega) \\} \\).
 
 We are now ready to talk about **systems** that receive an input signal \\(x[n]\\) and produce an output signal \\(y[n]\\), such that \\(y[n] = x[n] * h[n]\\), where \\(h[n]\\) is a function intrinsic to the system.
 By the convolution theorem, the spectrum of \\(y[n]\\), denoted by \\(Y(e^{j\omega})\\), is given by \\(Y(e^{j\omega})=H(e^{j\omega})X(e^{j\omega})\\), where \\(H(e^{j\omega})\\) is the DTFT of \\(h[n]\\).
@@ -341,7 +343,7 @@ Y(e^{j\omega})=H(e^{j\omega}).
 Taking the inverse DTFT gives
 
 \\[
-y[n] = \mathcal{F}^{-1}\{H(e^{j\omega})\} = h[n].
+y[n] = \mathcal{F}^{-1}\\{H(e^{j\omega})\\} = h[n].
 \\]
 
 Which is exactly the same function, \\(h[n]\\), the impulse response.
@@ -351,12 +353,12 @@ Two additional properties of the DTFT are **linearity** and **time shifting**.
 
 **Linearity**
 \\[
-ax[n]+by[n] \;\longrightarrow\; aX(e^{j\omega})+bY(e^{j\omega}).
+ax[n]+by[n] \longrightarrow aX(e^{j\omega})+bY(e^{j\omega}).
 \\]
 
 **Time shifting**
 \\[
-x[n-n_0] \;\longrightarrow\; e^{-j\omega n_0}X(e^{j\omega}).
+x[n-n_0] \longrightarrow e^{-j\omega n_0}X(e^{j\omega}).
 \\]
 
 For example, let
@@ -373,9 +375,8 @@ then by linearity,
 Z(e^{j\omega}) = 2X(e^{j\omega}) + 3Y(e^{j\omega}).
 \\]
 
-## Z-transform
-
-The Z-transform of a discrete-time signal \\(x[n]\\) is defined as
+## Bilateral Z-transform
+The bilateral Z-transform, of a discrete-time signal \\(x[n]\\) is defined as
 \\[
 X(z) = \sum_{n=-\infty}^{\infty} x[n]z^{-n},
 \\]
@@ -396,21 +397,21 @@ which is simply the DTFT of the signal \\(x[n]r^{-n}\\).
 For \\(r=1\\), we get the DTFT.
 
 The presence of \\(r\\) gives us an *extra degree of freedom*.
-As a consequence, the Z-transform exists for signals such as exponentially growing signals, that normally do not have a DTFT.
+As a consequence, the bilateral Z-transform exists for signals such as exponentially growing signals, that normally do not have a DTFT.
 For these signals, the extra degree of freedom (via an exponential) results in the signal to become well-behaved and causes the summation to have a finite value.
 
-## Z-transform: Some properties
+## Bilateral Z-transform: Some properties
 
-Many properties of the DTFT (such as linearity and convolution) carry over to the Z-transform.
+Many properties of the DTFT (such as linearity and convolution) carry over to the bilateral Z-transform.
 
-The set of values of \\(z\\) for which the Z-transform converges is called the **Region of Convergence (ROC)**.
+The set of values of \\(z\\) for which the bilateral Z-transform converges is called the **Region of Convergence (ROC)**.
 
 As an example, consider
 \\[
 x[n]=a^nu[n].
 \\]
 
-Its Z-transform is
+Its bilateral Z-transform is
 \\[
 X(z) = \sum_{n=-\infty}^{\infty} a^nu[n]z^{-n} = \sum_{n=0}^{\infty} (az^{-1})^n.
 \\]
@@ -429,12 +430,21 @@ Therefore,
 X(z) = \frac{1}{1-az^{-1}} = \frac{z}{z-a}, \qquad |z|>|a|.
 \\]
 
-The ROC of the Z-transform is illustrated on the **z-plane**. For \\(a=0.5\\), it is the region outside the circle of radius \\(0.5\\) centered at the origin.
+The ROC of the bilateral Z-transform is illustrated on the ***z-plane*** as depicted below (to have a concrete example the figure assumes \\(a = 0.8 \\)):
 
-**Note:** A different function can result in the same Z-transform expression but have a different ROC.
+<figure style="text-align: center;">
+  <img src="chapter_one_imgs/z_plane.png" alt="Z-plane for the expression X(z)." style="display: block; margin: 0 auto;" width="500">
+  <figcaption>Figure 2: Z-plane for the expression X(z).</figcaption>
+</figure>
+
+As the figure shows, the shaded area, which is \\(|z| > 0.8\\), is the ROC of \\(X(z)\\) we computed earlier.
+In the figure, you can also notice the location of the ***pole*** and the ***zero***. A zero is a root of the numerator of \\(X(z)\\), and a pole is a root of the denominator of  X(z), after simplifying X(z) and cancelling any common roots between the numerator and denominator.
+
+**Note:** A different sequence can result in the same bilateral Z-transform expression but have a different ROC.
 Consequently, when we refer to the Z-transform of a function, we should always specify its corresponding ROC as well.
-
-A variant of the Z-transform, called the **unilateral Z-transform**, is often used to solve linear constant-coefficient difference equations (LCCDEs). It is defined as
+A related but different type of transform from the bilateral Z-transform is called the ***unilateral Z-transform***.
+The unilateral Z-transform is often used to solve linear constant-coefficient difference equations (LCCDEs).
+Unilateral Z-transform is defined as: 
 \\[
 X(z) = \sum_{n=0}^{\infty} x[n]z^{-n}.
 \\]
@@ -456,7 +466,7 @@ One of the primary applications of the unilateral Z-transform is to find solutio
 Let's say we have the following LCCDE:
 
 \\[
-y[n] = y[n-1] + x[n]
+y[n] = 0.5y[n-1] + x[n]
 \\]
 
 With initial condition \\(y[-1] = 0\\).
@@ -466,29 +476,29 @@ As a side note, by doing so, we are assuming that \\(y[n]\\) and \\(x[n]\\) have
 \\(x[n]\\) is the input and the existence of its Z-transform is not up to us.
 If we are dealing with reasonable, physical signals as input, then their Z-transform exists.
 As for \\(y[n]\\), as long as the input is exponentially bounded, the solution \\(y[n]\\) to such LCCDE is exponentially bounded and has a valid Z-transform
-(refer to *Kelley, Walter G., and Allan C. Peterson. Difference equations: an introduction with applications. Academic Press, 2001*, for the proof of this).
+(refer to [1], for the proof of this).
 Hence, applying Z-transform to both sides and isolating \\(Y(z)\\) we get:
 
 \\[
-Y(z)=z^{-1}Y(z)+z^{-1}y[-1]+X(z)
+Y(z)=0.5z^{-1}Y(z) + 0.5z^{-1}y[-1] + X(z)
 \\]
 
 Since \\(y[-1]=0\\),
 
 \\[
-Y(z)(1-z^{-1})=X(z)
+Y(z)(1-0.5z^{-1})=X(z)
 \\]
 
 and therefore,
 
 \\[
-Y(z)=\frac{X(z)}{1-z^{-1}}=H(z)X(z)
+Y(z)=\frac{X(z)}{1-0.5z^{-1}}=H(z)X(z)
 \\]
 
 where
 
 \\[
-H(z)=\frac{1}{1-z^{-1}}.
+H(z)=\frac{1}{1-0.5z^{-1}}.
 \\]
 
 To solve for \\(y[n]\\), assume that the input is just the step function \\(x[n]=u[n]\\), its unilateral Z-transform is:
@@ -500,20 +510,24 @@ X(z)=\frac{1}{1-z^{-1}}
 hence,
 
 \\[
-Y(z)=\frac{1}{(1-z^{-1})^2}.
+Y(z) = \frac{1}{(1 - z^{-1}) (1 - 0.5z^{-1})} 
 \\]
 
-We can then use the Z-transform tables to find the inverse transform of \\(Y(z)\\) and obtain the time-domain signal.
+We can then do partial fraction decomposition to get:
+\\[
+Y(z) = \frac{2}{1 - z^{-1}} - \frac{1}{1 - 0.5z^{-1}}
+\\]
+Lastly, we can lookup Z-transform tables to find the inverse transform of each term \\(Y(z)\\) and obtain the time-domain signal.
 The inverse is unique by the uniqueness theorem of the Z-transform, which states that the mapping between the time domain and the Z-transform domain is one-to-one.
 This gives us
 
 \\[
-y[n]=(n+1)u[n].
+y[n]=(2-(0.5)^n)u[n].
 \\]
 
 ### The relation between unilateral Z-transform and DTFT
 LCCDE with initial conditions are problems that, inherently, have solutions that are valid for \\(n \ge 0\\).
-(This is similar to the continuous-time case, and to IVPs if you have worked with them before).
+(This is similar to the continuous-time case, and to initial value problems (IVPs)).
 So, the solution \\(y[n]\\) is only valid for \\(n \ge 0\\).
 If we assume that \\(y[n]\\) and \\(x[n]\\) are zeros for \\(n<0\\), then the bilateral and unilateral Z-transform becomes the same (by the definition):
 
@@ -525,12 +539,34 @@ Therefore, the function \\(H(z)\\) found earlier can be evaluated on the unit ci
 Hence, we can see that the system \\(Y(e^{j\omega}) = H(e^{j\omega}) X(e^{j\omega})\\) is merely doing frequency selective filtering on input signal \\(x[n]\\)!
 This tells us how the LCCDE will shape the input signal if \\(x[n]\\) and \\(y[n]\\) are zero for \\(n<0\\).
 For our previous example:
-
 \\[
-H(e^{j\omega}) = \frac{1}{1-e^{-j\omega}}.
+H(e^{j\omega}) = \frac{1}{1-0.5e^{-j\omega}}.
 \\]
 
-Plotting this function can show us that this is a low-pass filter.
+**Note 1:** We can replace \\(z = e^{j\omega}\\) in the Z-transform and get the DTFT of the signal only if the corresponding \\(x[n]\\) is absolutely summable:
+\\[
+\sum_{n=-\infty}^{\infty} |x[n]| < \infty.
+\\]
+(Because Z-transform of \\(x[n]\\) converges, if we have \\(\sum_{n=-\infty}^{\infty} |x[n]| |z|^{-n} < \infty \\), which for \\(z={e^{j\omega}}\\) is just the condition above.)
+
+Therefore, to safely do the substitution \\(z = e^{j\omega}\\) we can either do inverse Z-transform and see if the \\(x[n]\\) has that property, or we can directly determine that condition by looking at the poles (roots of the denominator of the Z-transform) and checking whether their magnitude is less than \\(1\\).
+
+Plotting the magnitude of this function can show us that this is a low-pass filter (\\(|H(e^{j\omega})| = 1 / \sqrt{1.25 - \cos(\omega)} \\)).
+We'll learn more about interpreting the function \\(H(e^{j\omega})\\) and its characteristics in the next chapter.
+
+**Note 2:** When someone hands us a Z-transform expression and asks us to find the time-domain equivalent, as we just saw with the example, if the expression was obtained via unilateral Z-transform, then there is one unique time-domain signal that results in that Z-transform expression.
+As we briefly mentioned in the previous subsection, this is not the case if the expression was obtained via bilateral Z-transform.
+For instance, if the expression \\(H(z) = \frac{1}{1-0.5z^{-1}} \\) is obtained via bilateral Z-transform, both the signal
+\\[
+  h[n] = (0.5)^{n} u[n]
+\\]
+As well as
+\\[
+  h[n] = (0.5)^{n} u[-n-1]
+\\]
+are valid time-domain signals that give us that Z-transform. The only thing that differentiates them is their corresponding ROC.
+For the first case, the ROC is \\( |z| > 0.5 \\) and for the latter is \\( |z| < 0.5 \\).
+Since, by definition, the sum in the unilateral Z-transform is from \\(n = 0\\) until \\(n = \infty \\), only the first sequence can give us that Z-transform expression.
 
 ## Digital filter design
 The art of filter design, in summary, is to find coefficients of an LCCDE that gives us the desired filter behavior.
@@ -570,3 +606,6 @@ println!("{:?}", output);
 ```
 
 This will print out the result of the filter operation.
+
+# References
+[1] *Kelley, Walter G., and Allan C. Peterson. Difference equations: an introduction with applications. Academic Press, 2001*
