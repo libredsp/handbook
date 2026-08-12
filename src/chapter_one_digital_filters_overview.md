@@ -376,7 +376,7 @@ Z(e^{j\omega}) = 2X(e^{j\omega}) + 3Y(e^{j\omega}).
 \\]
 
 ## Bilateral Z-transform
-The bilateral Z-transform, of a discrete-time signal \\(x[n]\\) is defined as
+The bilateral Z-transform of a discrete-time signal \\(x[n]\\) is defined as
 \\[
 X(z) = \sum_{n=-\infty}^{\infty} x[n]z^{-n},
 \\]
@@ -394,7 +394,7 @@ X(re^{j\omega}) = \sum_{n=-\infty}^{\infty} x[n] (r e^{j\omega} )^{-n} = \sum_{n
 \\]
 
 which is simply the DTFT of the signal \\(x[n]r^{-n}\\).
-For \\(r=1\\), we get the DTFT.
+For \\(r=1\\), we get the actual DTFT.
 
 The presence of \\(r\\) gives us an *extra degree of freedom*.
 As a consequence, the bilateral Z-transform exists for signals such as exponentially growing signals, that normally do not have a DTFT.
