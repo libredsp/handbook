@@ -543,6 +543,9 @@ For our previous example:
 H(e^{j\omega}) = \frac{1}{1-0.5e^{-j\omega}}.
 \\]
 
+Plotting the magnitude of this function can show us that this is a low-pass filter (\\(|H(e^{j\omega})| = 1 / \sqrt{1.25 - \cos(\omega)} \\)).
+We'll learn more about interpreting the function \\(H(e^{j\omega})\\) and its characteristics in the next chapter.
+
 **Note 1:** We can replace \\(z = e^{j\omega}\\) in the Z-transform and get the DTFT of the signal only if the corresponding \\(x[n]\\) is absolutely summable:
 \\[
 \sum_{n=-\infty}^{\infty} |x[n]| < \infty.
@@ -550,9 +553,6 @@ H(e^{j\omega}) = \frac{1}{1-0.5e^{-j\omega}}.
 (Because Z-transform of \\(x[n]\\) converges, if we have \\(\sum_{n=-\infty}^{\infty} |x[n]| |z|^{-n} < \infty \\), which for \\(z={e^{j\omega}}\\) is just the condition above.)
 
 Therefore, to safely do the substitution \\(z = e^{j\omega}\\) we can either do inverse Z-transform and see if the \\(x[n]\\) has that property, or we can directly determine that condition by looking at the poles (roots of the denominator of the Z-transform) and checking whether their magnitude is less than \\(1\\).
-
-Plotting the magnitude of this function can show us that this is a low-pass filter (\\(|H(e^{j\omega})| = 1 / \sqrt{1.25 - \cos(\omega)} \\)).
-We'll learn more about interpreting the function \\(H(e^{j\omega})\\) and its characteristics in the next chapter.
 
 **Note 2:** When someone hands us a Z-transform expression and asks us to find the time-domain equivalent, as we just saw with the example, if the expression was obtained via unilateral Z-transform, then there is one unique time-domain signal that results in that Z-transform expression.
 As we briefly mentioned in the previous subsection, this is not the case if the expression was obtained via bilateral Z-transform.
