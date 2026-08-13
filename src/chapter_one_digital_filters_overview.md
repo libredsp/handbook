@@ -48,7 +48,7 @@ z_1(z_2 + z_3) = z_1z_2 + z_1z_3
 \\]
 where \\(z_1\\), \\(z_2\\), and \\(z_3\\) are complex-valued numbers. This is an application of the distributive law.
 
-When dealing with complex numbers, a term that we will use frequently is something called *complex conjugate*.
+When dealing with complex numbers, a term that we will use frequently is something called ***complex conjugate***.
 A complex number is a complex conjugate of another complex number if their real parts are the same and their imaginary parts have opposite signs.
 For instance, numbers \\(z_1 = 2 + 3j\\) and \\(z_2 = 2 - 3j\\) are complex conjugates of each other.
 
