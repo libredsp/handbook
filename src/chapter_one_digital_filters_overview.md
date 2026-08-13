@@ -48,6 +48,10 @@ z_1(z_2 + z_3) = z_1z_2 + z_1z_3
 \\]
 where \\(z_1\\), \\(z_2\\), and \\(z_3\\) are complex-valued numbers. This is an application of the distributive law.
 
+When dealing with complex numbers, a term that we will use frequently is something called *complex conjugate*.
+A complex number is a complex conjugate of another complex number if their real parts are the same and their imaginary parts have opposite signs.
+For instance, numbers \\(z_1 = 2 + 3j\\) and \\(z_2 = 2 - 3j\\) are complex conjugates of each other.
+
 What we've seen so far are complex numbers. We also have *complex exponentials*. These are expressions of the form \\(e^{j\theta}\\), where \\(e\\) is Euler's constant, \\(j=\sqrt{-1}\\), and \\(\theta\\) is any real-valued number.
 
 Complex exponentials are related to trigonometric functions via *Euler's formula*. This formula is stated below:
@@ -105,7 +109,8 @@ In other words, DFS is merely a system of \\(N\\) equation and \\(N\\) unknowns.
 
 Can we apply standard Gaussian elimination to solve such systems?
 
-The answer is yes. Complex numbers form a field, and Gaussian elimination works on any matrix whose entries belong to a field.
+The answer is yes.
+Complex numbers form a field, and Gaussian elimination works on any matrix whose entries belong to a field.
 Hence, it can be used to solve \\(Ax=b\\).
 
 Even though Gaussian elimination gives us a method for computing the DFS coefficients, in practice we exploit a special property of the matrix \\(A\\) and compute the coefficients using the closed-form formula:
