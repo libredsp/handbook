@@ -182,7 +182,7 @@ When such a signal passes through an LTI system, each cosine component is indepe
 
 
 ## Filters with symmetric impulse responses
-Now, imagine we have a filter whose impulse response is symmetric.
+Imagine we have a filter whose impulse response is symmetric.
 This means that mathematically, the impulse response is:
 
 \\[
@@ -231,7 +231,7 @@ Every cosine component gets delayed by the same amount.
 This is why it's called linear phase.
 
 ### An example of a filter with symmetric impulse response
-Now, let's see a simple example of a linear phase filter that has a symmetric impulse response.
+We shall now see a simple example of a linear phase filter that has a symmetric impulse response.
 Assume the impulse response of the filter is symmetric with the values:
 
 \\[

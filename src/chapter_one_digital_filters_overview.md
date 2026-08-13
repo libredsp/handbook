@@ -5,7 +5,7 @@ We can plug the input signal \\(x[n]\\) into the following equation, called a **
 \\[
 y[n] = \sum_{k=0}^{M} b_k x[n-k] - \sum_{k=1}^{N} a_k y[n-k].
 \\]
-In this equation, the left-hand side, \\(y[n]\\), is the output of the system, and the terms \\(x[n-k]\\) and \\(y[n-k]\\) are past samples of the input and output, respectively.
+In this equation, we consider the left-hand side, \\(y[n]\\), the output of the system, and the terms \\(x[n-k]\\) and \\(y[n-k]\\) are past samples of the input and output respectively.
 The values \\(a_k\\) and \\(b_k\\) are some coefficients.
 The output \\(y[n]\\) obtained by applying the equation passes certain frequencies of the input and filters out others. Here, the "frequencies" in the input signal come from the theory of Fourier analysis.
 The theory of Fourier analysis, which was originally developed for continuous-time signals, gives us a set of formulas to decompose almost any signal (under mild assumptions) into a sum of sinusoidal terms.
