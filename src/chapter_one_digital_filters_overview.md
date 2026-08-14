@@ -37,9 +37,9 @@ Before continuing, we shall have a basic understanding of complex numbers and Eu
 
 A complex number is a number that has the general form
 \\[
-a + bi
+a + bj
 \\]
-where \\(a\\) and \\(b\\) are arbitrary real-valued numbers and \\(i=\sqrt{-1}\\).
+where \\(a\\) and \\(b\\) are arbitrary real-valued numbers and \\(j=\sqrt{-1}\\).
 
 An important property of complex numbers is that they form a *field*. This means that they obey all the familiar rules such as associativity, commutativity, distributivity, and so on, which real numbers also obey.
 For instance, the following expression is valid for complex numbers:
