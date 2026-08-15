@@ -88,7 +88,7 @@ Proof:
 \frac{d}{dx}e^{jx} = \frac{d}{dx}(\cos x+j\sin x) = -\sin x+j\cos x = je^{jx}.
 \\]
 
-Euler's formula is used extensively in signal processing because it often gives us a shortcut when computing different transforms. More importantly, it allows us to relate certain transforms to other ones, such as the DTFT to the Z-transform (as we'll see later), or the CTFT to the Laplace transform.
+Euler's formula is used extensively in signal processing because it often gives us a shortcut when computing different transforms. More importantly, it allows us to relate certain transforms to other ones, such as the DTFT to the Z-transform (as we'll see later in this chapter), or the CTFT to the Laplace transform.
 
 ## Discrete Fourier Series
 
@@ -324,6 +324,7 @@ The convolution theorem told us what happens if we convolve two *signals* in the
 
 We are now ready to talk about **systems** that receive an input signal \\(x[n]\\) and produce an output signal \\(y[n]\\), such that \\(y[n] = x[n] * h[n]\\), where \\(h[n]\\) is a function intrinsic to the system.
 By the convolution theorem, the spectrum of \\(y[n]\\), denoted by \\(Y(e^{j\omega})\\), is given by \\(Y(e^{j\omega})=H(e^{j\omega})X(e^{j\omega})\\), where \\(H(e^{j\omega})\\) is the DTFT of \\(h[n]\\).
+The function \\(H(e^{j\omega})\\) is also called the ***trasnfer function*** of that LCCDE.
 Such systems perform frequency-selective filtering on the input signal.
 
 Something interesting happens if we choose the input to such a system to be the delta function.
